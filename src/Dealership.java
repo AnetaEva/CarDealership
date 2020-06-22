@@ -1,5 +1,4 @@
-
-    /*
+/*
 Project: Car Design
 Purpose Details: Car Dealership Application
 Course: IST 242
