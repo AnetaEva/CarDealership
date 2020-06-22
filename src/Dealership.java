@@ -61,24 +61,24 @@ import java.util.Scanner;
                     System.out.println("Thank you for visiting!");
                     break;
                 case 1:
-                    Customer custArray = new Customer();
-                    custArray.customerRecord();
+                    edu.psu.abington.ist.ist242.User custArray = new edu.psu.abington.ist.ist242.User();
+                    //custArray.customerRecord();
                     break;
                 case 2:
-                    Inventory inventory = new Inventory();
-                    inventory.inventoryRecord();
+                    //Inventory inventory = new Inventory();
+                    //inventory.inventoryRecord();
                     break;
                 case 3:
-                    salesPerson sales = new salesPerson();
-                    sales.salesPersonsRecord();//(salespersonArray);
+                    //salesPerson sales = new salesPerson();
+                    //sales.salesPersonsRecord();//(salespersonArray);
                     break;
                 case 4:
-                    Order order = new Order();
-                    order.orderRecords();///*orderArray,transactionArray, custArray*);
+                    //Order order = new Order();
+                    //order.orderRecords();///*orderArray,transactionArray, custArray*);
                     break;
                 case 5:
-                    Transaction transaction = new Transaction();
-                    transaction.transactionRecords(/*transactionArray*/);
+                    //Transaction transaction = new Transaction();
+                    //transaction.transactionRecords(/*transactionArray*/);
                     break;
 
                 default:
