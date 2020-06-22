@@ -8,6 +8,7 @@ Last date Changed: June 21, 2020
 Rev: 1
 */
 package edu.psu.abington.ist.ist242;
+import java.util.*;
 
 enum userType {Customer, SalesPerson}
 
@@ -70,4 +71,16 @@ public class User {
     public void setUserType(userType userType) {
         this.userType = userType;
     }
+
+    public static void customerRecord(ArrayList<Customer>cList){
+        for (Customer cust: cList){
+            System.out.println("Customer Id:" + cust.getUserId());
+            System.out.println("Customer Name:" + cust.getUserName());
+            System.out.println("Customer Phone:" + cust.getUserPhone());
+            System.out.println("Customer Address:" + cust.getUserAddress());
+        }
+
+    }
+
 }
+

@@ -19,6 +19,9 @@ package edu.psu.abington.ist.ist242;
         public Customer(int userId, String userName, String userPhone, String userAddress, userType userType) {
             super(userId, userName, userPhone, userAddress, userType);
         }
+        public Customer(){
+
+        }
     }
 
 
