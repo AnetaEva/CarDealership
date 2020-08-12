@@ -1,116 +1,194 @@
 /*
-Project: Car Design
-Purpose Details: Car Dealership Application
+Project: Lab 9
+Purpose Details: Pizza ordering application
 Course: IST 242
-Team 4
-Developed: June 14, 2020
-Last date Changed: June 21, 2020
-Rev: 1
-*/
+Author:
+Date Developed:
+Last Date Changed:
+Rev:
+ */
+
 package edu.psu.abington.ist.ist242;
+
+
 import java.util.*;
 
 public class Inventory {
 
 
+    //Class Level Variables - Protect the data
+    int iCount = 101;
+    ArrayList<Inventory> invList;
+
+    public int carID;
+    public String vin;
+    public double price;
+    public String year;
+    public String make;
     public String model;
-   public String make;
-   public String color;
-   public int vin;
 
-   public Inventory(){
 
-   }
 
-    public Inventory(String model, String make, String color, int vin) {
-        this.model = model;
-        this.make = make;
-        this.color = color;
-        this.vin = vin;
+    // CONSTRUCTOR -------------------------------------------------------------------------------------------------------------------------------------------
+    public Inventory(int _iCount, String _vin, String _year, String _make, String _model, double _price) {
+        this.iCount = _iCount;
+        this.vin = _vin;
+        this.make = _make;
+        this.year = _year;
+        this.model = _model;
+        this.price = _price;
     }
 
-    public String getModel() {
-        return model;
+    // EMPTY CONSTRUCTOR --------------------------------------------------------------------------------------------------------------------------------
+    public Inventory() {
+
     }
 
-    public String getMake() {
-        return make;
+
+    // SETTERS AND GETTERS --------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public int getCarID() {
+        return carID;
     }
 
-    public String getColor() {
-        return color;
+    public void setCarID(int carID) {
+        this.carID = carID;
     }
 
-    public int getVin() {
+    public String getVin() {
         return vin;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+
+    public ArrayList getInvList() {
+        return invList;
+    }
+
+    public void setInvList(ArrayList invList) {
+        this.invList = invList;
+    }
+
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public double getPrice(String _vin) {
+        this.vin = _vin;
+        return price;
+    }
+
+
+    public String getMake() {
+        return make;
     }
 
     public void setMake(String make) {
         this.make = make;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+
+    public String getYear() {
+        return year;
     }
 
-    public void setVin(int vin) {
-        this.vin = vin;
+    public void setYear(String year) {
+        this.year = year;
     }
 
-    public static void displayCars(){
-        ArrayList<Inventory> iList = new ArrayList<>();
-        Inventory Invt1 = new Inventory("Civic", "Honda", "red", 123456789);
-        Inventory Invt2 = new Inventory("Pilot", "Honda", "black", 4464314);
-        Inventory Invt3 = new Inventory("Accord", "Honda", "blue", 46410468);
-        Inventory Invt4 = new Inventory("CRV", "Honda", "yellow", 6644347);
-        Inventory Invt5 = new Inventory("Insight", "Honda", "blue", 634681468);
-        Inventory Invt6 = new Inventory("Passport", "Honda", "black", 46846416);
-        Inventory Invt7 = new Inventory("FIT", "Honda", "red", 864645);
-        Inventory Invt8 = new Inventory("Clarity", "Honda", "red", 6468414);
 
-        iList.add(Invt1);
-        iList.add(Invt2);
-        iList.add(Invt3);
-        iList.add(Invt4);
-        iList.add(Invt5);
-        iList.add(Invt6);
-        iList.add(Invt7);
-        iList.add(Invt8);
-        int i =0;
-        for (Inventory Invt:iList){
-            i++;
-            System.out.println("Car " + i + " : ");
-            System.out.println("Make: "+Invt.getMake());
-            System.out.println("Model: "+Invt.getModel());
-            System.out.println("Color: "+Invt.getColor());
-            System.out.println("Vin: "+Invt.getVin());
-            System.out.println("");
+    public String getModel() {
+        return model;
+    }
 
+    public void setModel(String model) {
+        this.model = model;
+    }
+    //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    //add method to change menuItem price depending on the size
+    public static void listMenu(ArrayList<Inventory> invList) {
+        for (Inventory invItem : invList) {
+            System.out.println(invItem);
         }
-
     }
-    //Default Constructor
 
-    //public Boolean deleteCar(String vin) {
-    //    System.out.println("Enter VIN to delete:");
-    //    Scanner input = new Scanner(System.in);
-    //    input.nextLine();
-    //    try {
-    //        for (Vehicle c : carsList1) {
-    //            if (c.vin.equals(vin)) {
-    //                carsList1.remove(c);
-    //                System.out.println("Car with VIN: " + vin + " removed!");
-    //                break;
-    //            }
-    //        }
-    //    } catch (java.lang.Exception e){
-    //        System.out.println(e.getMessage());
-    //        return false;
-    //    }
-    //    return true;
-    //}
+
+    public Inventory addInventory() {
+        invList = new ArrayList<Inventory>();
+        Inventory invt = new Inventory(iCount, vin, year, make, model, price);
+        Scanner input = new Scanner(System.in);
+
+        invt.setCarID(iCount++);
+
+        System.out.print("Please Enter a Vin Number: ");
+        vin = (Exception.testAlphaNumeric(Exception.getInput()));
+        invt.setVin(vin);
+
+        System.out.print("Please Enter the year of Car: ");
+        invt.setYear(input.nextLine());
+
+        System.out.print("Please Enter the Make of Car: ");
+        make = (Exception.testAlpha(Exception.getInput()));
+        invt.setMake(make);
+
+        System.out.print("Please Enter the Model of Car: ");
+        model = (Exception.testAlpha(Exception.getInput()));
+        invt.setModel(model);
+
+        System.out.print("Please Enter the price of Car: ");
+        invt.setPrice(input.nextDouble());
+
+        invList.add(invt);
+        return invt;
+    }
+
+
+    public static void removeCar(ArrayList<Inventory> invList) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter a Vin number to delete the Car: ");
+        String vin = input.nextLine();
+
+        for (Inventory inv : invList) {
+            if (vin == inv.getVin()) {
+                invList.remove(vin);
+                break;
+            }
+            invList.remove(vin);
+            break;
+        }
+    }
+
+    /*public Inventory removeCar(String vin) {
+
+        //Remove Search string by vehicleId set Color
+        System.out.println("Enter VIN to remove: ");
+        getVin();
+        vin = Exception.testAlphaNumeric(Exception.getInput());
+        setVin(vin);
+        try{
+            for (Inventory v : invList) {
+                if (v.vin.equals(vin)) {
+                    invList.remove(v);
+                    break;
+                }
+            }
+        }catch (java.lang.Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return vin;
+    }*/
+
+    @Override
+    public String toString() {
+        return String.format("%-12s |%-12s | %-12s | %-12s | %-20s | %-12s", iCount, vin, year, make, model, "$" + price);
+    }
 }

@@ -14,13 +14,13 @@ enum userType {Customer, SalesPerson}
 
 public class User {
 
-    private int userId;
+    private String userId;
     private String userName;
     private String userPhone;
     private String userAddress;
     private userType userType;
 
-    public User(int userId, String userName, String userPhone, String userAddress, userType userType) {
+    public User(String userId, String userName, String userPhone, String userAddress, userType userType) {
         this.userId = userId;
         this.userName = userName;
         this.userPhone = userPhone;
@@ -32,11 +32,11 @@ public class User {
 
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -72,15 +72,9 @@ public class User {
         this.userType = userType;
     }
 
-    public static void customerRecord(ArrayList<Customer>cList){
-        for (Customer cust: cList){
-            System.out.println("Customer Id:" + cust.getUserId());
-            System.out.println("Customer Name:" + cust.getUserName());
-            System.out.println("Customer Phone:" + cust.getUserPhone());
-            System.out.println("Customer Address:" + cust.getUserAddress());
-        }
+
 
     }
 
-}
+
 

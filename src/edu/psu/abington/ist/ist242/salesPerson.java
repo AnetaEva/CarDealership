@@ -11,16 +11,15 @@ package edu.psu.abington.ist.ist242;
 
 
 
-public class salesPerson {
+public class salesPerson extends User{
 
     public int userId;
     public String userName;
-    public String userPhone;
-    public String userAddress;
 
 
-    public salesPerson(int userId, String userName, String userPhone, String userAddress) {
+    public salesPerson(int _userId, String _userName) {
+        this.userId = _userId;
+        this.userName = _userName;
 
     }
-
 }
